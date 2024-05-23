@@ -5,6 +5,7 @@ Created on Tue May  7 15:04:36 2024
 
 @author: fandaojin
 """
+#%%
 # import 
 import math
 import matplotlib.pyplot as plt
@@ -87,13 +88,11 @@ phi,f01_max_detune = cal_phi_by_Mq(
         Z_amplitude = 0.7, #电子学最大输出
         )
 print(f'num_phi0:{phi}',f'f01_max_detune:{f01_max_detune/1e9}')
-#%%
-Tphi1 = coupler2qubit
 #%% 上海Zu3 XYnoise 根据XY互感计算
 att_line = [0,1,4,4,4,0] 
 att_list = [0,3,10,20,0,16]
 att_list = [a1+a2 for a1,a2 in zip(att_line,att_list)]
-Mz = e-12
+Mz = 0.9e-12
 g = cal_g_by_Mx(Mx)
 p_th = cal_p_thermal_by_g(
         base_temp = 1.2e4,
@@ -121,3 +120,4 @@ print(f'p_th:{p_th}')
 Vpp=0.12
 XY_dBm = 20*np.log10(Vpp**2/50/2*1e3)
 print(XY_dBm)
+# %%
